@@ -10,6 +10,11 @@ Simply drag the `st_freecam` folder into your RedM resources folder and ensure i
 
 At the time of writing RedM does not yet have support for the CFX Keymapping as seen in FiveM. So the 2 options (You can add more if required) to access the freecam are a Page UP (default) keypress or command /freecam
 
+## Preview
+https://www.youtube.com/watch?v=RSwk0k5RRoc
+
+[![Resource Preview](https://i.imgur.com/t0VQPVU.jpg)](https://youtu.be/RSwk0k5RRoc "Resource Preview")
+
 ## Contributing
 Pull requests are welcome. Please ensure proper testing and standards before opening a pull request!
 
