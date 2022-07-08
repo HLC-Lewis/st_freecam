@@ -1,5 +1,5 @@
+![Freecam|690x112](https://i.imgur.com/FTsHIGN.png)
 # Freecam
-
 This freecam script is a simple script that allows the user to enter a full freecam mode, the freecams movements are controlled by the mouse/controller movement and the W, A, S, D keys by default. The camera has a few developer tools built in including teleport to raycast / camera coord and coordinate viewer.
 
 ## Installation
