@@ -43,6 +43,12 @@ local camera = {
 				SetEntityCoords(PlayerPedId(), coords)
 			end
 		},
+		{
+			label = "",
+			left_click_action = function(coords)
+				
+			end
+		}
 	}
 
 }
@@ -170,8 +176,11 @@ end
 
 local function developer_tools(location, rotation)
 	local hit, coords, entity = draw_raycast(1000.0, location, rotation)
-	draw_marker(0x50638AB9, coords, 0, 0, 0, 0, 0, 0, 0.1, 0.1, 0.1, 255, 100, 100, 100, 0, 0, 2, 0, 0, 0, 0)
-	draw_text(('Camera Mode\n%s (Speed: %.3f)\n======\nCoords: %.2f,%.2f,%.2f'):format(camera.modes[camera.active_mode].label, camera.speed, coords.x, coords.y, coords.z), 0.5, 0.01, true)
+
+	if camera.modes[camera.active_mode].label ~= "" then
+		draw_marker(0x50638AB9, coords, 0, 0, 0, 0, 0, 0, 0.1, 0.1, 0.1, 255, 100, 100, 100, 0, 0, 2, 0, 0, 0, 0)
+		draw_text(('Camera Mode\n%s (Speed: %.3f)\n======\nCoords: %.2f,%.2f,%.2f\nCam Pos: %s\nCam Rot: %s'):format(camera.modes[camera.active_mode].label, camera.speed, coords.x, coords.y, coords.z, location, rotation), 0.5, 0.01, true)
+	end
 
 	if IsDisabledControlPressed(1, camera.keybinds.mode_action) and coords and camera.modes[camera.active_mode].left_click_action then -- Left click action
 		camera.modes[camera.active_mode].left_click_action(coords)
