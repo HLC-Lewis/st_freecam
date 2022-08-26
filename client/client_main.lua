@@ -125,11 +125,12 @@ local function get_mouse_movement()
 end
 
 local function render_collision(current_location, new_location)
-	if current_location ~= new_location then
-		RequestCollisionAtCoord(new_location.x, new_location.y, new_location.z)
-		Citizen.InvokeNative(0x387AD749E3B69B70, new_location.x, new_location.y, new_location.x, new_location.y, new_location.z, 50.0, 0) -- LOAD_SCENE_START
-		Citizen.InvokeNative(0x5A8B01199C3E79C3) -- LOAD_SCENE_STOP
-	end
+	RequestCollisionAtCoord(new_location.x, new_location.y, new_location.z)
+
+	SetFocusPosAndVel(new_location.x, new_location.y, new_location.z, 0.0, 0.0, 0.0)
+
+	Citizen.InvokeNative(0x387AD749E3B69B70, new_location.x, new_location.y, new_location.z, new_location.x, new_location.y, new_location.z, 50.0, 0) -- LOAD_SCENE_START
+	Citizen.InvokeNative(0x5A8B01199C3E79C3) -- LOAD_SCENE_STOP
 end
 
 
@@ -192,6 +193,7 @@ local function stop_freecam()
 	SetCamActive(camera.handle, false)
 	DetachCam(camera.handle)
 	DestroyCam(camera.handle, true)
+	ClearFocus()
 	camera.handle = nil
 end
 
